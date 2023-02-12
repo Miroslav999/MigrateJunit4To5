@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/javaparser-core-3.25.0.jar" sourcepath="C:/Users/mshipilov/Downloads/javaparser-core-3.25.0-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.2">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins">
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/junit4/ui/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/internal/progress/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/jdt/internal/ui/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/debug/internal/ui/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/testing/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/core/internal/resources/**"/>
+			<accessrule kind="accessible" pattern="org/eclipse/m2e/core/internal/IMavenConstants"/>
+			<accessrule kind="accessible" pattern="org/eclipse/search2/internal/ui/**"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

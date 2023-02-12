@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			allPopups="true"
+			locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+			<menu
+				id="PopTest.menus.sampleMenu"
+				label="Migrate Junit4 to Junit5">
+      <command
+            commandId="TestPlugin.command2"
+            mnemonic="S"
+            style="push">
+         <visibleWhen
+               checkEnabled="true">
+         </visibleWhen>
+      </command>
+			</menu>
+		</menuContribution>
+	</extension>
+ <extension
+       point="org.eclipse.ui.commands">
+    <command
+          id="TestPlugin.command2"
+          name="Run">
+    </command>
+ </extension>
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="main.MigrateHandler"
+          commandId="TestPlugin.command2">
+    </handler>
+ </extension>
+</plugin>
