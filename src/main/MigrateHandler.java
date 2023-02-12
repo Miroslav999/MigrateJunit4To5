@@ -28,14 +28,22 @@ public class MigrateHandler implements IHandler {
 		ISelection selection = selectionService.getSelection();
 		if (selection instanceof IStructuredSelection) {
 			Object element = ((IStructuredSelection) selection).getFirstElement();
+			IProject project = null;
 			if (element instanceof IJavaProject) {
-				IProject project = ((IJavaProject) element).getProject();
-				if (project.isOpen()) {
-					List<IFile> javaFiles = Utils.getFiles(project, "java");
-					new RefactorHelper().migrateClasses(javaFiles);
-				}
-			} else if (element instanceof org.eclipse.jdt.internal.core.CompilationUnit) {
-				/* Код - только прототип, требует отладки */
+				project = ((IJavaProject) element).getProject();
+			} else if (element instanceof IProject) {
+				project = (IProject) element;
+			} else {
+				return null;
+			}
+
+			if (project.isOpen()) {
+				List<IFile> javaFiles = Utils.getFiles(project, "java");
+				new RefactorHelper().migrateClasses(javaFiles);
+			}
+
+//			if (element instanceof org.eclipse.jdt.internal.core.CompilationUnit) {
+//				/* Код - только прототип, требует отладки */
 //				org.eclipse.jdt.internal.core.CompilationUnit unit = (org.eclipse.jdt.internal.core.CompilationUnit) element;
 //				IFile javaFile = ResourcesPlugin
 //							.getWorkspace()
@@ -43,7 +51,7 @@ public class MigrateHandler implements IHandler {
 //							.getFileForLocation(
 //								unit.getPath());
 //	
-			}
+//			}
 		}
 		return null;
 	}
