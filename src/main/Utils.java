@@ -1,6 +1,7 @@
 package main;
 
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,10 @@ public class Utils {
 
 	public static void setContent(IFile file, String content) {
 		try {
-			file.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
-		} catch (CoreException e) {
+
+			file.setContents(new ByteArrayInputStream(content.getBytes("UTF-8")), IResource.FORCE, null);
+
+		} catch (CoreException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 	}
