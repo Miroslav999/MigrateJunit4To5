@@ -63,7 +63,7 @@ public class MigrateHandler implements IHandler {
 
 	@Override
 	public boolean isHandled() {
-		return false;
+		return true;
 	}
 
 	@Override
