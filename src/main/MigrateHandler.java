@@ -41,17 +41,6 @@ public class MigrateHandler implements IHandler {
 				List<IFile> javaFiles = Utils.getFiles(project, "java");
 				new RefactorHelper().migrateClasses(javaFiles);
 			}
-
-//			if (element instanceof org.eclipse.jdt.internal.core.CompilationUnit) {
-//				/* Код - только прототип, требует отладки */
-//				org.eclipse.jdt.internal.core.CompilationUnit unit = (org.eclipse.jdt.internal.core.CompilationUnit) element;
-//				IFile javaFile = ResourcesPlugin
-//							.getWorkspace()
-//							.getRoot()
-//							.getFileForLocation(
-//								unit.getPath());
-//	
-//			}
 		}
 		return null;
 	}
