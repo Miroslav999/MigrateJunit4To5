@@ -37,7 +37,7 @@ public class ReplaceTestAnnotation implements Rule {
 						} else if (ann.getNameAsString().equalsIgnoreCase("AfterClass")) {
 							ann.replace(Annotation.AfterAll.getAnnotationExpr());
 						} else if (ann.getNameAsString().equalsIgnoreCase("Ignore")) {
-							ann.replace(Annotation.Disable.getAnnotationExpr());
+							ann.replace(Annotation.Disabled.getAnnotationExpr());
 						}
 					}
 				}

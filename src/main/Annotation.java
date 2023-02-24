@@ -5,8 +5,8 @@ import com.github.javaparser.ast.expr.MarkerAnnotationExpr;
 
 public enum Annotation {
 
-	BeforeEach("BeforeEach"), BeforeAll("BeforeAll"), AfterEach("AfterEach"), AfterAll("AfterAll"), Disable(
-			"Disable");
+	BeforeEach("BeforeEach"), BeforeAll("BeforeAll"), AfterEach("AfterEach"), AfterAll("AfterAll"), Disabled(
+			"Disabled");
 
 	private String name;
 
