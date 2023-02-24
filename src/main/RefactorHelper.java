@@ -10,6 +10,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 
+import main.rules.ReplaceClassInCode;
 import main.rules.ReplaceTestAnnotation;
 import main.rules.ReplaceTestImports;
 import main.rules.Rule;
@@ -24,6 +25,7 @@ public class RefactorHelper {
 		rules = new ArrayList<>();
 		rules.add(new ReplaceTestImports());
 		rules.add(new ReplaceTestAnnotation());
+		rules.add(new ReplaceClassInCode());
 	}
 
 	public void migrateClasses(List<IFile> files) {
