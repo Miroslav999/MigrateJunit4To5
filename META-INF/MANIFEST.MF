@@ -15,4 +15,7 @@ Import-Package: org.eclipse.core.internal.resources,
  org.eclipse.jdt.internal.core,
  org.junit.jupiter.api;version="5.8.1"
 Bundle-ClassPath: lib/javaparser-core-3.25.0.jar,
+ lib/google-java-format-1.16.0.jar,
+ lib/guava-31.1-jre.jar,
  .
+

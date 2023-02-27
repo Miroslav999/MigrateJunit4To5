@@ -1,7 +1,5 @@
 package main.rules;
 
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
@@ -11,13 +9,14 @@ import com.github.javaparser.ast.expr.NameExpr;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 
 import main.Annotation;
+import main.FileWrapper;
 
 public class ReplaceTestAnnotation implements Rule {
 
 	@Override
-	public void modify(ParseResult<CompilationUnit> parsedJavaCode) {
+	public void modify(FileWrapper fileWrapper) {
 
-		for (TypeDeclaration<?> type : parsedJavaCode.getResult().get().getTypes()) {
+		for (TypeDeclaration<?> type : fileWrapper.getParsedJavaCode().getResult().get().getTypes()) {
 			String annFixMethodOrder = "FixMethodOrder";
 			if (type.isAnnotationPresent(annFixMethodOrder)) {
 				SingleMemberAnnotationExpr ann = (SingleMemberAnnotationExpr) type.getAnnotationByName(annFixMethodOrder).get();

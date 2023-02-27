@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.CoreException;
-
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
 
 import main.rules.ReplaceClassInCode;
 import main.rules.ReplaceTestAnnotation;
@@ -18,10 +13,8 @@ import main.rules.Rule;
 public class RefactorHelper {
 
 	private List<Rule> rules;
-	private JavaParser parser;
 
 	public RefactorHelper() {
-		parser = new JavaParser();
 		rules = new ArrayList<>();
 		rules.add(new ReplaceTestImports());
 		rules.add(new ReplaceTestAnnotation());
@@ -34,16 +27,18 @@ public class RefactorHelper {
 		}
 
 		for (IFile file : files) {
-			try {
-				ParseResult<CompilationUnit> parsedJavaCode = parser.parse(file.getContents());
-				for (Rule rule : rules) {
-					rule.modify(parsedJavaCode);
-					Utils.setContent(file, parsedJavaCode.getResult().get().toString());
+			FileWrapper fileWrapper = new FileWrapper(file);
+			for (Rule rule : rules) {
+				rule.modify(fileWrapper);
+				if (fileWrapper.getFormattedCodeAsString() == null) {
+					// TODO error description
+					continue;
 				}
-			} catch (CoreException e) {
-				e.printStackTrace();
+				if (fileWrapper.isChange()) {
+					Utils.setContent(file,
+							fileWrapper.getFormattedCodeAsString());
+				}
 			}
 		}
-
 	}
 }

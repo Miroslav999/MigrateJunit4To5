@@ -1,8 +1,7 @@
 package main.rules;
 
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
+import main.FileWrapper;
 
 public interface Rule {
-	void modify(ParseResult<CompilationUnit> parsedJavaCode);
+	void modify(FileWrapper fileWrapper);
 }

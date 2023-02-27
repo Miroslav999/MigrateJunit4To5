@@ -1,16 +1,16 @@
 package main.rules;
 
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.expr.SimpleName;
 
+import main.FileWrapper;
+
 public class ReplaceClassInCode implements Rule {
 
 	@Override
-	public void modify(ParseResult<CompilationUnit> parsedJavaCode) {
-		for (TypeDeclaration<?> type : parsedJavaCode.getResult().get().getTypes()) {
+	public void modify(FileWrapper fileWrapper) {
+		for (TypeDeclaration<?> type : fileWrapper.getParsedJavaCode().getResult().get().getTypes()) {
 			replaceAssertClass(type);
 		}
 

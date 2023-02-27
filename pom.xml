@@ -30,6 +30,26 @@
 									<outputDirectory>./lib</outputDirectory>
 								</artifactItem>
 							</artifactItems>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.google.googlejavaformat</groupId>
+									<artifactId>google-java-format</artifactId>
+									<version>1.16.0</version>
+									<type>jar</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>./lib</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.google.googlejavaformat</groupId>
+									<artifactId>google-java-format</artifactId>
+									<version>1.16.0</version>
+									<type>jar</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>./lib</outputDirectory>
+								</artifactItem>
+							</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
