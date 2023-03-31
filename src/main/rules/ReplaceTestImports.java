@@ -35,7 +35,7 @@ public class ReplaceTestImports implements Rule {
 						importDec.isAsterisk()));
 			} else if (importDec.getNameAsString().equalsIgnoreCase("org.junit.Ignore")) {
 				fileWrapper.replaceNode(importDec,
-						new ImportDeclaration(BASE_PACKAGE_NAME + Imports.Disable, importDec.isStatic(),
+						new ImportDeclaration(BASE_PACKAGE_NAME + Imports.Disabled, importDec.isStatic(),
 						importDec.isAsterisk()));
 			} else if (importDec.getNameAsString().contains("org.junit.Assert")) {
 				String identifier = ((Name) importDec.getChildNodes().get(0)).getIdentifier();
