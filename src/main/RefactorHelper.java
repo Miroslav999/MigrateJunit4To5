@@ -19,6 +19,7 @@ public class RefactorHelper {
 		rules.add(new ReplaceTestImports());
 		rules.add(new ReplaceTestAnnotation());
 		rules.add(new ReplaceClassInCode());
+		// rules.add(new ChangeArgOrder());
 	}
 
 	public void migrateClasses(List<IFile> files) {
