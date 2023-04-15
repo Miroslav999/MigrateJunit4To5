@@ -23,6 +23,10 @@ public class ReplaceTestAnnotation implements Rule {
 				ann.replace(getTestMethodOrderAnn(ann.getMemberValue().asFieldAccessExpr().getName().asString()));
 			}
 
+			type.getAnnotationByName("Ignore").ifPresent(annt -> {
+				annt.replace(Annotation.Disabled.getAnnotationExpr());
+			});
+
 			for (Object body : type.getMembers()) {
 				if (body instanceof MethodDeclaration) {
 					MethodDeclaration meth = (MethodDeclaration) body;
